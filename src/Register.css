@@ -1,0 +1,100 @@
+/* Contenedor principal */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9fafb;
+    padding: 1rem;
+  }
+  
+  /* Tarjeta de registro */
+  .register-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  /* Título */
+  .register-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 1rem;
+  }
+  
+  /* Formulario */
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Inputs y Select */
+  .register-input,
+  .register-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .register-input:focus,
+  .register-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  }
+  
+  /* Botón */
+  .register-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Alertas */
+  .alert {
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .alert.success {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .alert.error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  /* Errores en inputs */
+  .input-error {
+    border-color: #f87171;
+  }
+  
+  .input-error:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+  }
+  
