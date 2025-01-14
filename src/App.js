@@ -8,6 +8,10 @@ import Home from "../src/components/Home";
 import Login from "../src/components/Auth/Login";
 import AdminDashboard from "../src/pages/AdminDashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import CrearProgramacion from "./components/Programation/CrearProgramacion";
+import ManageProgramations from "./components/Programation/ManageProgramation";
+import ProgramationList from './components/Programation/ProgramationList'
+
 
 const App = () => {
   return (
@@ -17,6 +21,7 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />}/>
+          <Route path="/programaciones/crear" element={<CrearProgramacion />}/>
           <Route
             path="/home"
             element={
@@ -33,6 +38,23 @@ const App = () => {
               </PrivateRoute>
             }
           />
+          <Route
+            path="/programaciones"
+            element={
+              <PrivateRoute>
+                <ManageProgramations />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/programaciones"
+            element={
+              <PrivateRoute>
+                <ProgramationList />
+              </PrivateRoute>
+            }
+          />
+
         </Routes>
       </Router>
     </AuthProvider>

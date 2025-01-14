@@ -5,7 +5,7 @@ import '../Home.css'; // CSS personalizado para Home
 
 const Home = () => {
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
     if (!user) {
@@ -13,17 +13,11 @@ const Home = () => {
     }
   }, [user, navigate]);
 
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
+
 
   return (
     <div className="home-container">
       <h1 className="welcome-message">Bienvenido, {user?.nombre}</h1>
-      <button onClick={handleLogout} className="logout-btn">
-        Cerrar sesión
-      </button>
     </div>
   );
 };

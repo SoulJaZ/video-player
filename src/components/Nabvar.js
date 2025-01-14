@@ -29,6 +29,9 @@ const Navbar = () => {
             <Link to="/dashboard" className="link">
               Panel
             </Link>
+            <Link to="/programaciones" className="link">
+              Programaciones
+            </Link>
             <button
               onClick={handleLogout}
               className="logout-btn"

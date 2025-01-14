@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import apiClient from "../../apiClient";
-import "../../CreateContent.css"
+import "../../CreateContent.css";
 
 const CreateContent = () => {
   const [form, setForm] = useState({
@@ -8,6 +8,7 @@ const CreateContent = () => {
     titulo: "",
     url_contenido: "",
     duracion: "",
+    horario: "", // Asegúrate de que este campo esté en el estado
     imagenBanner: null,  // Para VBL
     textoBanner: "",     // Para VBL
   });
@@ -21,6 +22,7 @@ const CreateContent = () => {
       contentData.append("titulo", form.titulo);
       contentData.append("url_contenido", form.url_contenido);
       contentData.append("duracion", form.duracion);
+      contentData.append("horario", form.horario); // Enviar el horario
       if (form.imagenBanner) contentData.append("imagenBanner", form.imagenBanner);
       contentData.append("textoBanner", form.textoBanner);
 
@@ -32,6 +34,7 @@ const CreateContent = () => {
         titulo: "",
         url_contenido: "",
         duracion: "",
+        horario: "",
         imagenBanner: null,
         textoBanner: "",
       });
@@ -97,7 +100,7 @@ const CreateContent = () => {
       </div>
 
       {/* Condiciones para Video con Banner Lateral (VBL) */}
-      {(form.tipo === "BT" ||  form.tipo === "VBL" ) &&(
+      {(form.tipo === "BT" || form.tipo === "VBL") && (
         <>
           <div className="form-group">
             <label>Imagen del Banner Lateral (opcional):</label>
@@ -125,7 +128,7 @@ const CreateContent = () => {
       )}
 
       {/* Condiciones para Banner con Título (BT) */}
-      {(form.tipo === "BT" ||  form.tipo === "VBL" || form.tipo === "VT") &&(
+      {(form.tipo === "BT" || form.tipo === "VBL" || form.tipo === "VT") && (
         <div className="form-group">
           <label>Duración (en segundos):</label>
           <input
@@ -140,6 +143,19 @@ const CreateContent = () => {
           />
         </div>
       )}
+
+      {/* Campo para el horario */}
+      <div className="form-group">
+        <label>Horario de Programación:</label>
+        <input
+          type="datetime-local"
+          name="horario"
+          value={form.horario}
+          onChange={handleChange}
+          className="input-field"
+          required
+        />
+      </div>
 
       {/* Botón de Enviar */}
       <div className="form-group">
