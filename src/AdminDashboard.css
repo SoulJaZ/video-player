@@ -1,0 +1,79 @@
+/* AdminDashboard.css */
+.admin-dashboard {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: #eef1ea;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .content-management {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .content-management > section {
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .content-management > section h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .content-management > section .btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .content-management > section .btn:hover {
+    background-color: #218838;
+  }
+  
+  @media (max-width: 768px) {
+    .admin-dashboard {
+      padding: 15px;
+    }
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    .content-management {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .content-management > section {
+      width: 100%;
+    }
+  }
+  

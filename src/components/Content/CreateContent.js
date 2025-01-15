@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import apiClient from "../../apiClient";
 import "../../CreateContent.css";
 
+
 const CreateContent = () => {
   const [form, setForm] = useState({
     tipo: "VT", // Valor predeterminado: Video con Título
@@ -12,22 +13,29 @@ const CreateContent = () => {
     imagenBanner: null,  // Para VBL
     textoBanner: "",     // Para VBL
   });
-
+  //const [content, setContent] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      // Convertir el valor de horario a un formato ISO válido
+        const validHorario = new Date(form.horario).toISOString().slice(0, 19).replace('T', ' ');
+
       const contentData = new FormData();
       contentData.append("tipo", form.tipo);
       contentData.append("titulo", form.titulo);
       contentData.append("url_contenido", form.url_contenido);
       contentData.append("duracion", form.duracion);
-      contentData.append("horario", form.horario); // Enviar el horario
+      contentData.append("horario", validHorario); // Enviar el horario
+      console.log('Fecha convertida:', validHorario); // Verifica que el formato sea correcto
       if (form.imagenBanner) contentData.append("imagenBanner", form.imagenBanner);
       contentData.append("textoBanner", form.textoBanner);
 
       // Enviar los datos al backend
-      await apiClient.post("/contenidos", contentData);
+      const response = await apiClient.post("/contenidos", contentData);
+    
+
+      //setContent(response.data);  // Guarda el contenido creado para su visualización
       alert("Contenido creado con éxito");
       setForm({
         tipo: "VT", 
@@ -53,6 +61,7 @@ const CreateContent = () => {
   };
 
   return (
+    <div>
     <form onSubmit={handleSubmit} className="form-container">
       <h2>Agregar Contenido</h2>
 
@@ -86,7 +95,9 @@ const CreateContent = () => {
       </div>
 
       {/* URL del Contenido (Video o Imagen) */}
-      <div className="form-group">
+      {(form.tipo === 'VBL' || form.tipo === 'VT') &&(
+        <>
+        <div className="form-group">
         <label>URL del Contenido (Video/Imagen):</label>
         <input
           type="url"
@@ -98,7 +109,9 @@ const CreateContent = () => {
           required
         />
       </div>
-
+      </>
+      )}
+      
       {/* Condiciones para Video con Banner Lateral (VBL) */}
       {(form.tipo === "BT" || form.tipo === "VBL") && (
         <>
@@ -164,6 +177,9 @@ const CreateContent = () => {
         </button>
       </div>
     </form>
+    {/* cuando se haya creado, mostrarlo.*/}
+    
+    </div>
   );
 };
 

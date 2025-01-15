@@ -1,0 +1,154 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #e1ebdf;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Main Container */
+  .content-management {
+    max-width: 1000px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #e1ebdf;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    color: #333333;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  /* Alerts */
+  .alert {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .alert-error {
+    background-color: #ffdddd;
+    color: #d9534f;
+  }
+  
+  /* Content List */
+  .existing-content h2,
+  .edit-content h2 {
+    color: #333333;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .content-item {
+    background-color: #f1f1f1;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  .content-item a {
+    word-wrap: break-word; /* Permite cortar las palabras largas */
+    overflow-wrap: break-word; /* Compatibilidad adicional */
+    display: block; /* Asegura que el enlace se comporte como un bloque si es necesario */
+    white-space: normal; /* Permite que el texto haga saltos de línea */
+    max-width: 100%; /* Evita que el contenedor sea más ancho que su contenedor padre */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+    text-overflow: ellipsis; /* Corta el texto con "..." si es necesario */
+  }
+  
+  
+  .content-item article h3 {
+    color: #007bff;
+    margin: 0 0 10px;
+  }
+  
+  .content-item p {
+    margin: 5px 0;
+  }
+  
+  .content-item .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .content-item .buttons .btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  /* Buttons */
+  .btn-edit {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-delete {
+    background-color: #d9534f;
+    color: white;
+  }
+  
+  .btn-submit {
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Forms */
+  .edit-content .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .edit-content .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .edit-content .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .content-management {
+      padding: 10px;
+    }
+  
+    .content-item .buttons {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .btn {
+      width: 100%;
+    }
+  }
+  

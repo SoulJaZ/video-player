@@ -1,37 +1,35 @@
-import React, { useState } from "react";
-// import axios from "axios";
-import { Link } from "react-router-dom";
-import ProgramationList from "./ProgramationList";
+import React from "react";
+import { ToastContainer } from "react-toastify"; // Importa ToastContainer para notificaciones
+import "react-toastify/dist/ReactToastify.css"; // Asegúrate de incluir los estilos
 import '../../ManageProgramation.css'
-// import apiClient from "../../apiClient";
+
+import ContentList from "../../components/Content/ContentList";
+import ContentManagement from "../Content/ContentManagement";
 
 const ManageProgramations = () => {
-  const [programaciones] = useState([]);
-
- 
-
   return (
-    <div>
-      <h1>Programaciones</h1>
-      <ul>
-        {programaciones.map((programacion) => (
-          <li key={programacion.id_programacion}>
-            {programacion.hora_inicio} - {programacion.estado}
-          </li>
-        ))}
-      </ul>
-      <button>
-          <Link to="/programaciones/crear">
-            Crear Programación
-          </Link>
-        </button>
-        <button>
-          <Link to="/programaciones/editar">
-            Editar Programación
-          </Link>
-        </button>
-        <ProgramationList />
+    <div className="manage-programations-container">
+      {/* Contenedor principal */}
+      <ToastContainer /> {/* Contenedor para notificaciones */}
+      
+      <header className="dashboard-header">
+        <h1>Panel de Gestión de Contenidos</h1>
+        <p>Administra y actualiza tus contenidos de manera sencilla.</p>
+      </header>
+      
+      <main className="dashboard-content">
+        {/* Lista de contenidos */}
+        <section className="content-list-section">
+          <h2>Lista de Contenidos</h2>
+          <ContentList />
+        </section>
 
+        {/* Gestión de contenidos */}
+        <section className="content-management-section">
+          <h2>Gestión de Contenidos</h2>
+          <ContentManagement />
+        </section>
+      </main>
     </div>
   );
 };

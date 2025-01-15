@@ -1,31 +1,65 @@
-/* Home.js Styling */
+/* Home.css */
 .home-container {
-    display: flex;
+  text-align: center;
+  padding: 40px;
+  background-color: #f7f7f7;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.banner-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.banner-container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-image {
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.banner-details {
+  max-width: 500px;
+  padding-left: 20px;
+  color: #555;
+}
+
+.banner-details p {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .banner-content {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f4f4f9;
+    align-items: flex-start;
   }
-  
-  .welcome-message {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+
+  .banner-image {
+    max-height: 300px;
   }
-  
-  .logout-btn {
-    padding: 10px 20px;
-    background-color: #ff4c4c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+
+  .banner-details {
+    padding-left: 0;
   }
-  
-  .logout-btn:hover {
-    background-color: #e02a2a;
-  }
-  
+}

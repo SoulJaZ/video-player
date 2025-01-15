@@ -1,100 +1,99 @@
+/* src/Register.css */
+
 /* Contenedor principal */
 .register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f9fafb;
-    padding: 1rem;
-  }
-  
-  /* Tarjeta de registro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f6f9; /* Fondo gris claro */
+}
+
+.register-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Título */
+.register-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Formulario */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Inputs y Select */
+.register-input,
+.register-select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.register-input:focus,
+.register-select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilo para los mensajes de error y éxito */
+.alert {
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.alert.success {
+  background-color: #28a745;
+  color: white;
+}
+
+.alert.error {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Estilo para el botón */
+.register-button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
   .register-card {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+    width: 90%;
+    padding: 15px;
   }
-  
-  /* Título */
+
   .register-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333333;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
   }
-  
-  /* Formulario */
-  .register-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  /* Inputs y Select */
-  .register-input,
-  .register-select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-  }
-  
-  .register-input:focus,
-  .register-select:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-  }
-  
-  /* Botón */
+
   .register-button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #3b82f6;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1.1rem;
   }
-  
-  .register-button:hover {
-    background-color: #2563eb;
-  }
-  
-  /* Alertas */
-  .alert {
-    padding: 0.75rem;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
-  
-  .alert.success {
-    background-color: #d1fae5;
-    color: #065f46;
-  }
-  
-  .alert.error {
-    background-color: #fee2e2;
-    color: #b91c1c;
-  }
-  
-  /* Errores en inputs */
-  .input-error {
-    border-color: #f87171;
-  }
-  
-  .input-error:focus {
-    border-color: #ef4444;
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
-  }
-  
+}

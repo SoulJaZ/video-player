@@ -1,29 +1,49 @@
-// src/App.js
+//import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+
 import { AuthProvider } from "../src/context/AuthContext";
-import Register from "../src/components/Auth/Register";
+
+// Components
 import Navbar from "../src/components/Nabvar";
+import PrivateRoute from "./components/PrivateRoute";
+
+// Pages
 import Home from "../src/components/Home";
 import Login from "../src/components/Auth/Login";
+import Register from "../src/components/Auth/Register";
 import AdminDashboard from "../src/pages/AdminDashboard";
-import PrivateRoute from "./components/PrivateRoute";
-import CrearProgramacion from "./components/Programation/CrearProgramacion";
 import ManageProgramations from "./components/Programation/ManageProgramation";
-import ProgramationList from './components/Programation/ProgramationList'
 
+
+// Routes Constant
+const ROUTES = {
+  LOGIN: "/login",
+  REGISTER: "/register",
+  HOME: "/home",
+  DASHBOARD: "/dashboard",
+  PROGRAMATIONS: "/programaciones",
+};
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
+        <ToastContainer position="top-right" autoClose={3000} />
+        
+        {/* Navbar */}
         <Navbar />
+
+        {/* App Routes */}
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />}/>
-          <Route path="/programaciones/crear" element={<CrearProgramacion />}/>
+          {/* Public Routes */}
+          <Route path={ROUTES.LOGIN} element={<Login />} />
+          <Route path={ROUTES.REGISTER} element={<Register />} />
+
+          {/* Private Routes */}
           <Route
-            path="/home"
+            path={ROUTES.HOME}
             element={
               <PrivateRoute>
                 <Home />
@@ -31,7 +51,7 @@ const App = () => {
             }
           />
           <Route
-            path="/dashboard"
+            path={ROUTES.DASHBOARD}
             element={
               <PrivateRoute>
                 <AdminDashboard />
@@ -39,22 +59,16 @@ const App = () => {
             }
           />
           <Route
-            path="/programaciones"
+            path={ROUTES.PROGRAMATIONS}
             element={
               <PrivateRoute>
                 <ManageProgramations />
               </PrivateRoute>
             }
           />
-          <Route
-            path="/programaciones"
-            element={
-              <PrivateRoute>
-                <ProgramationList />
-              </PrivateRoute>
-            }
-          />
 
+          {/* Fallback Route */}
+         
         </Routes>
       </Router>
     </AuthProvider>
